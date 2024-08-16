@@ -1,6 +1,7 @@
 // src/components/TeacherDashboard.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 
 const TeacherDashboard = () => {
   const [tasks, setTasks] = useState([]);
@@ -43,7 +44,13 @@ const TeacherDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-purple-500 to-pink-500 p-8">
+    <motion.div
+      initial={{ opacity: 0, x: -100 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 100 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen bg-gradient-to-r from-purple-500 to-pink-500 p-8"
+    >
       <h1 className="text-3xl font-bold text-white mb-6">Teacher Dashboard</h1>
       <div className="bg-white rounded-lg shadow-lg p-6">
         <h2 className="text-2xl font-semibold mb-4">Assign a New Task</h2>
@@ -101,7 +108,7 @@ const TeacherDashboard = () => {
           </ul>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
