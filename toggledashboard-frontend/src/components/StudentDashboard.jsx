@@ -1,4 +1,3 @@
-// src/components/StudentDashboard.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
@@ -30,14 +29,6 @@ const StudentDashboard = () => {
   };
 
   return (
-    // <motion.div
-    //   initial={{ opacity: 0, x: -100 }}
-    //   animate={{ opacity: 1, x: 0 }}
-    //   exit={{ opacity: 0, x: 100 }}
-    //   transition={{ duration: 0.5 }}
-    //   className="p-6 bg-gray-100 min-h-screen"
-    // ></motion.div>
-
     <motion.div
       initial={{ opacity: 0, x: -100 }}
       animate={{ opacity: 1, x: 0 }}
