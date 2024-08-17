@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const TeacherDashboard = () => {
+    const navigate = useNavigate();
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState({ title: '', description: '' });
 
@@ -50,7 +52,7 @@ const TeacherDashboard = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gradient-to-r from-purple-500 to-pink-500 p-8"
     >
-      <h1 className="text-3xl font-bold text-white mb-6">Teacher Dashboard</h1>
+      <h1 className="flex justify-center text-3xl font-bold text-white mb-6">Teacher Dashboard</h1>
       <div className="bg-white rounded-lg shadow-lg p-6">
         <h2 className="text-2xl font-semibold mb-4">Assign a New Task</h2>
         <form onSubmit={addTask} className="space-y-4 mb-6">
@@ -79,8 +81,13 @@ const TeacherDashboard = () => {
             type="submit"
             className="bg-purple-500 text-white px-4 py-2 rounded-full font-semibold shadow-lg hover:bg-purple-700 transition duration-300"
           >
+           
             Assign Task
           </button>
+          <button
+            onClick={() => navigate('/')}
+            className="bg-purple-500 text-white ml-5 px-4 py-2 rounded-full font-semibold shadow-lg hover:bg-purple-700 transition duration-300"
+          > Go Back</button>
         </form>
         <h2 className="text-2xl font-semibold mb-4">Tasks List</h2>
         {tasks.length === 0 ? (

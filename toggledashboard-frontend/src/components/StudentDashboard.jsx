@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const StudentDashboard = () => {
   const [tasks, setTasks] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -36,7 +38,7 @@ const StudentDashboard = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gradient-to-r from-green-400 to-blue-500 p-8"
     >
-      <h1 className="text-3xl font-bold text-white mb-6">Student Dashboard</h1>
+      <h1 className="flex justify-center text-3xl font-bold text-white mb-6">Student Dashboard</h1>
       <div className="bg-white rounded-lg shadow-lg p-6">
         <h2 className="text-2xl font-semibold mb-4">Assigned Tasks</h2>
         {tasks.length === 0 ? (
@@ -60,6 +62,11 @@ const StudentDashboard = () => {
             ))}
           </ul>
         )}
+      </div>
+      <div>
+        <button onClick={() => navigate('/')} className='ml-4 px-4 py-2 rounded-full font-semibold shadow-lg transition duration-300 bg-blue-500 text-white hover:bg-blue-700 mt-5'>
+            Go Back
+        </button>
       </div>
       </motion.div>
   );
